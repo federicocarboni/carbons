@@ -1,0 +1,23 @@
+baseURL: 'https://carbons.dev/'
+languageCode: 'en-us'
+title: 'Federico Carboni'
+
+params:
+  repository: "https://github.com/federicocarboni/carbons"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+
+languages:
+  en:
+    weight: 1
+    languageName: "en"
+    title: "Carbons"
+  # it:
+  #   weight: 1
+  #   languageName: "it"
+  #   title: "Carbons"

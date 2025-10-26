@@ -1,0 +1,316 @@
+/* Reset */
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+  /* text-size-adjust is not needed for responsive websites */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+}
+/*  */
+
+:root {
+  --background: rgb(22, 23, 24);
+  --foreground: rgb(237, 236, 233);
+  --muted: rgb(207, 204, 203);
+  --link: #5ebfec;
+  --link-hover: #a0d8f1;
+  --link-visited: #ab8ce1;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #fff;
+    --foreground: #212329;
+    --link: #3367a2;
+    --link-hover: #164778;
+    --link-visited: #5b3897;
+  }
+}
+
+body {
+  color-scheme: dark light;
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+small {
+  font-size: 0.85rem;
+}
+
+/* Headings */
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: inherit;
+}
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+h2,
+.h2 {
+  font-size: 2.25rem;
+}
+h3,
+.h3 {
+  font-size: 1.85rem;
+}
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+hr {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  border: none;
+  border-bottom: 1px solid var(--foreground);
+}
+
+p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: underline;
+  font: inherit;
+  color: var(--link);
+}
+
+a:visited,
+a:visited * {
+  text-decoration: underline;
+  color: var(--link-visited);
+}
+
+a:hover,
+a:hover * {
+  text-decoration: underline;
+  color: var(--link-hover);
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+}
+
+pre,
+mark {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+code,
+mark {
+  padding: 0.1em 0.25em;
+  border-radius: 0.2em;
+}
+
+code {
+  background-color: #b4b4b428;
+}
+
+mark {
+  background-color: #ffde3a48;
+}
+
+pre code {
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Syntax highlighted sections */
+.highlight .chroma {
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  overflow-x: scroll;
+}
+
+/* Nav */
+
+.nav {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  max-width: 60rem;
+  padding: 1rem 2rem;
+  margin: auto;
+}
+
+.nav-home {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 2rem;
+  color: inherit;
+}
+
+.nav-home:visited {
+  color: inherit;
+}
+
+.nav-home:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.nav-items {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  font-weight: 500;
+  color: inherit;
+}
+
+.nav-item a:hover {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.toc {
+  max-width: 50rem;
+  width: 100%;
+  padding: 0.5rem 2rem;
+}
+
+.toc summary {
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.toc ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.toc li {
+  padding: 0 1.25rem;
+}
+
+.toc li a {
+  text-decoration: none;
+  padding: 0 1rem;
+  border-left-color: #00000000;
+  border-left-width: 2px;
+  border-left-style: solid;
+  color: var(--foreground);
+}
+
+.toc li a:hover,
+.toc .active {
+  text-decoration: underline;
+  border-left-color: var(--foreground);
+}
+
+.content main {
+  max-width: 50rem;
+  padding: 2rem;
+  margin: auto;
+  width: 100%;
+  min-width: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.content .toc {
+  position: sticky;
+  max-width: 50rem;
+  background: var(--background);
+  top: 0;
+  margin: auto;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 1280px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1fr 50rem 1fr;
+  }
+  .content main {
+    grid-column: 2; /* center column */
+    grid-row: 1;
+  }
+  .content .toc {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+  }
+}
+
+.breadcrumbs ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  list-style: none;
+}
+
+.breadcrumbs li {
+  padding: 0;
+  padding-right: 0.5rem;
+}
+
+.breadcrumbs li::after {
+  content: "/";
+  padding-left: 0.5rem;
+}

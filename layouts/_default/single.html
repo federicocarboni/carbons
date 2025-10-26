@@ -1,0 +1,21 @@
+{{ define "body" -}}
+<div class="content">
+  <aside class="toc">
+    <details open>
+      <summary><span class="h5">In this article</span></summary>
+      {{ .TableOfContents }}
+    </details>
+  </aside>
+  <main>
+    <nav class="breadcrumbs">
+      <ul>
+        {{- range .Ancestors.Reverse }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      </ul>
+    </nav>
+    {{ .Content }}
+  </main>
+</div>
+{{ end -}}

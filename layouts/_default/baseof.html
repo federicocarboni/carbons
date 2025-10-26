@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ .Lang }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      {{ if .Title -}} {{ .Title }} | {{ .Site.Title }} {{ else -}} {{
+      .Site.Title }} {{ end -}}
+    </title>
+    {{ range .Translations -}}
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Lang }}">
+    {{ end -}} {{ $style := (slice (resources.Get "css/chroma-github-dark.css")
+    (resources.Get "css/chroma-github.css") (resources.Get "css/styles.css")) |
+    resources.Concat "css/styles.css" | minify | fingerprint -}}
+    <link
+      rel="stylesheet"
+      href="{{ $style.RelPermalink }}"
+      integrity="{{ $style.Data.Integrity }}"
+    >
+    <!-- {{ $script := resources.Get "js/script.js" | minify | fingerprint -}}
+    <script
+      src="{{ $script.RelPermalink }}"
+      integrity="{{ $script.Data.Integrity }}"
+      crossorigin="anonymous"
+      defer
+    ></script> -->
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a class="nav-home" href="/">{{ .Site.Title }}</a>
+        <ul class="nav-items">
+          <li class="nav-item"><a href="/about">About</a></li>
+          <li class="nav-item"><a href="/posts">Posts</a></li>
+          {{ range .Translations -}}
+          <li class="nav-item">
+            <a href="{{ .RelPermalink }}" lang="{{ .Lang }}">
+              {{ .Language.LanguageName }}
+            </a>
+          </li>
+          {{ end -}}
+        </ul>
+      </nav>
+    </header>
+    {{ block "body" . }}{{ end }}
+  </body>
+</html>
