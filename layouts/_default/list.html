@@ -1,8 +1,12 @@
 {{ define "body" -}}
-  {{ .Content -}}
-  {{ range .RegularPages -}}
-    <article>
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </article>
-  {{ end -}}
+<div class="content">
+  <div class="body">
+{{ .Content -}}
+{{ range .RegularPages -}}
+  <article>
+    <h6><a href="{{ .RelPermalink }}">{{ .Title }}</a></h6>
+  </article>
+{{ end -}}
+</div>
+</div>
 {{ end -}}

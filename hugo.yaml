@@ -11,6 +11,7 @@ markup:
       unsafe: true
   highlight:
     noClasses: false
+    guessSyntax: true
 
 languages:
   en:

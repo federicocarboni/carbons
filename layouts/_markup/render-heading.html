@@ -1,0 +1,18 @@
+{{- if ge .Level 4 }}
+<h{{ .Level }}>
+  {{ .Text }}
+</h{{ .Level }}>
+{{- else }}
+<h{{ .Level }} id="{{ .Anchor }}" class="heading">
+  <span>{{ .Text }}</span>
+  <a href="#{{ .Anchor }}" class="anchor" aria-labelledby="{{ .Anchor }}" >
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <use href="#AnchorIcon" />
+    </svg>
+  </a>
+</h{{ .Level }}>
+{{- end }}
