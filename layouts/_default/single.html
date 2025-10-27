@@ -6,16 +6,18 @@
       {{ .TableOfContents }}
     </details>
   </aside>
-  <main>
-    <nav class="breadcrumbs">
+  <div class="body">
+    <nav id="Breadcrumbs" class="breadcrumbs" aria-label="Breadcrumbs">
       <ul>
         {{- range .Ancestors.Reverse }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
         {{- end }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       </ul>
     </nav>
-    {{ .Content }}
-  </main>
+    <main>
+      {{ .Content }}
+    </main>
+  </div>
 </div>
 {{ end -}}
